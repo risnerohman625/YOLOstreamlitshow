@@ -22,6 +22,10 @@
 requires = ["setuptools>=70.0.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
+
+[tool.poetry]
+package-mode = false
+
 # Project settings -----------------------------------------------------------------------------------------------------
 [project]
 name = "ultralytics"
@@ -185,5 +189,3 @@ in-place = true
 ignore-words-list = "crate,nd,ned,strack,dota,ane,segway,fo,gool,winn,commend,bloc,nam,afterall"
 skip = '*.pt,*.pth,*.torchscript,*.onnx,*.tflite,*.pb,*.bin,*.param,*.mlmodel,*.engine,*.npy,*.data*,*.csv,*pnnx*,*venv*,*translat*,__pycache__*,*.ico,*.jpg,*.png,*.mp4,*.mov,/runs,/.git,./docs/??/*.md,./docs/mkdocs_??.yml'
 
-[tool.poetry]
-package-mode = false
