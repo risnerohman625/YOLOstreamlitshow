@@ -337,14 +337,17 @@ def safe_download(
                     if method == "torch":
                         torch.hub.download_url_to_file(url, f, progress=progress)
                     else:
-                        with request.urlopen(url) as response, TQDM(
-                            total=int(response.getheader("Content-Length", 0)),
-                            desc=desc,
-                            disable=not progress,
-                            unit="B",
-                            unit_scale=True,
-                            unit_divisor=1024,
-                        ) as pbar:
+                        with (
+                            request.urlopen(url) as response,
+                            TQDM(
+                                total=int(response.getheader("Content-Length", 0)),
+                                desc=desc,
+                                disable=not progress,
+                                unit="B",
+                                unit_scale=True,
+                                unit_divisor=1024,
+                            ) as pbar,
+                        ):
                             with open(f, "wb") as f_opened:
                                 for data in response:
                                     f_opened.write(data)
